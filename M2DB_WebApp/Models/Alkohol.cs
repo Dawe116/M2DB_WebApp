@@ -12,5 +12,7 @@
 
         public virtual Gyarto? Gyarto { get; set; }
         public virtual Kategoria? Kategoria { get; set; }
+
+        public virtual ICollection<Alkohol> Alkohols { get; set; } = new List<Alkohol>();
     }
 }

@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Alkoholok";
+}
+<h1 class="kozepre">@ViewData["Title"]</h1>
+
+<p>Ide jönnek az AB a szeszek, táblában.</p>
+
+<div>
+    <table class="table table-bordered table-striped">
+       <thead>
+           <tr>
+               <th>Id</th>
+               <th>Név</th>
+               <th>AlkoholFox</th>
+               <th>Űrtartalom</th>
+               <th>Gyarto Id</th>
+               <th>Ár</th>
+               <th>Kategória</th>
+           </tr>
+       </thead>
+
+       <tbody>
+            @foreach (Alkohol item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nev</td>
+                    <td>@item.AlkoholFox</td>
+                    <td>@item.Urtartlokom</td>
+                    <td>@item.GyartoId</td>
+                    <td>@item.Ar</td>
+                    <td>@item.KategoriaId</td>
+                </tr>
+            }
+        </tbody>
+</table>
+</div>

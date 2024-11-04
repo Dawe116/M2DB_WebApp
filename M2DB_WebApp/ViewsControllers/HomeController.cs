@@ -22,8 +22,17 @@ namespace M2DB_WebApp.Controllers
         {
             return View();
         }
+        public IActionResult Alkoholok()
+        {
+            return View(Services.AlkoholService.GetAlkohol());
+        }
+        public IActionResult AlkoholokDTOs()
+        {
+            return View(Services.AlkoholService.GetAlkoholDTOs());
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

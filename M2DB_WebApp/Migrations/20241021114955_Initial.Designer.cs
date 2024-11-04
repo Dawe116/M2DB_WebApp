@@ -31,9 +31,6 @@ namespace M2DB_WebApp.Migrations
                     b.Property<double>("AlkoholFok")
                         .HasColumnType("double");
 
-                    b.Property<int?>("AlkoholID")
-                        .HasColumnType("int");
-
                     b.Property<int>("Ar")
                         .HasColumnType("int");
 
@@ -50,8 +47,6 @@ namespace M2DB_WebApp.Migrations
                         .HasColumnType("double");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("AlkoholID");
 
                     b.HasIndex("GyartoId");
 
@@ -99,9 +94,6 @@ namespace M2DB_WebApp.Migrations
 
             modelBuilder.Entity("M2DB_WebApp.Models.Alkohol", b =>
                 {
-                    b.HasOne("M2DB_WebApp.Models.Alkohol", null)
-                        .WithMany("Alkohols")
-                        .HasForeignKey("AlkoholID");
 
                     b.HasOne("M2DB_WebApp.Models.Gyarto", "Gyarto")
                         .WithMany()

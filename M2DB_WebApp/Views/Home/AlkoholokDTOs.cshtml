@@ -1,0 +1,40 @@
+﻿@using M2DB_WebApp.DTOs
+@{
+    ViewData["Title"] = "AlkoholokDTOs";
+}
+<h1 class="kozepre">@ViewData["Title"]</h1>
+
+<p>Ide jönnek az AB a szeszek, táblában.</p>
+
+<div>
+    <table class="table table-bordered table-striped">
+       <thead>
+           <tr>
+               <th>Név</th>
+               <th>AlkoholFox</th>
+               <th>Űrtartalom</th>
+               <th>Gyarto Név</th>
+               <th>Gyarto Cimé</th>
+               <th>Gyarto Országa</th>
+               <th>Ár FTt</th>
+               <th>Kategória</th>
+           </tr>
+       </thead>
+
+       <tbody>
+            @foreach (AlkoholDTO item in Model)
+            {
+                <tr>
+                    <td>@item.Nev</td>
+                    <td>@item.AlkoholFox (%)</td>
+                    <td>@item.Urtartlokom (l)</td>
+                    <td>@item.GyartoNev</td>
+                    <td>@item.GyartoCim</td>
+                    <td>@item.GyartoOrszag</td>
+                    <td>@item.Ar</td>
+                    <td>@item.KategoriaNev</td>
+                </tr>
+            }
+        </tbody>
+</table>
+</div>

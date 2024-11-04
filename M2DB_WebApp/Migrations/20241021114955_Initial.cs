@@ -57,16 +57,10 @@ namespace M2DB_WebApp.Migrations
                     GyartoId = table.Column<int>(type: "int", nullable: false),
                     Ar = table.Column<int>(type: "int", nullable: false),
                     KategoriaID = table.Column<int>(type: "int", nullable: false),
-                    AlkoholID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Alkohols", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Alkohols_Alkohols_AlkoholID",
-                        column: x => x.AlkoholID,
-                        principalTable: "Alkohols",
-                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Alkohols_Gyartos_GyartoId",
                         column: x => x.GyartoId,
@@ -81,11 +75,6 @@ namespace M2DB_WebApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Alkohols_AlkoholID",
-                table: "Alkohols",
-                column: "AlkoholID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Alkohols_GyartoId",

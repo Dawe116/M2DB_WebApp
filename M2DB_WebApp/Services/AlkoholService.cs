@@ -7,12 +7,12 @@ namespace M2DB_WebApp.Services
 {
     public class AlkoholService
     {
-        public static List<Alkohol> GetAlkohol()
+        public static async Task<List<Alkohol>> GetAlkohol()
         {
-            var context = new AlkoholContext();
+            var context =  new AlkoholContext();
             try
             {
-                var response = context.Alkohols.ToList();
+                var response = await context.Alkohols.ToListAsync();
                 return response;
             }
             catch(Exception ex)
@@ -26,13 +26,13 @@ namespace M2DB_WebApp.Services
             }
         }
 
-        public static List<AlkoholDTO> GetAlkoholDTOs()
+        public static async Task<List<AlkoholDTO>> GetAlkoholDTOs()
         {
 
             var context = new AlkoholContext();
             try
             {
-                var valasz = context.Alkohols.Include(f => f.Gyarto).Include(f => f.Kategoria).Select(f => new AlkoholDTO() { 
+                var valasz = await context.Alkohols.Include(f => f.Gyarto).Include(f => f.Kategoria).Select(f => new AlkoholDTO() { 
                     Nev = f.Nev, 
                     AlkoholFox = f.AlkoholFox, 
                     Ar =  f.Ar, 
@@ -40,7 +40,7 @@ namespace M2DB_WebApp.Services
                     GyartoNev = f.Gyarto.Nev, 
                     GyartoOrszag = f.Gyarto.SzarmazasiHely, 
                     KategoriaNev = f.Kategoria.Nev, 
-                    Urtartlokom = f.Urtartlokom}).ToList();
+                    Urtartlokom = f.Urtartlokom}).ToListAsync();
                 return valasz;
             }
             catch(Exception ex )
